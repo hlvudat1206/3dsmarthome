@@ -1,0 +1,173 @@
+.button-insert {
+    color: #4fbfa8;
+    position: relative;
+ 
+    text-align: center;
+} 
+.p-4 {
+        padding: 1.0rem !important; 
+ 
+}
+
+.p-4-special {
+  padding: 0.0rem !important; 
+
+}
+/* .wrapper{
+width: auto;
+} */
+#sidebar-insert {
+    min-width: 350px;
+    /* min-width: 510px; */
+
+    /* padding-bottom: 500px; */
+    min-height: 40px;
+    max-height: 80px;
+    border-radius: 15px;
+    background: #E3DCDA;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+    #sidebar-insert.active {
+      margin-left: -00px; }
+    #sidebar-insert .logo {
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto; }
+      #sidebar-insert .logo span {
+        display: block; }
+    #sidebar-insert ul.components {
+      padding: 0; }
+    #sidebar-insert ul li {
+        text-align: center;
+      font-size: 16px; }
+      #sidebar-insert ul li > ul {
+        margin-left: 10px; }
+        #sidebar-insert ul li > ul li {
+          font-size: 14px; }
+      #sidebar-insert ul li a {
+        padding: 10px 0;
+        display: block;
+        color: #e9ecef;
+  
+        border-bottom: 1px solid white }
+        #sidebar-insert ul li a:hover {
+          color: #e9ec00; }
+      #sidebar-insert ul li.active > a {
+        background: transparent;
+         }
+    @media (max-width: 500.98px) {
+      #sidebar-insert {
+        margin-left: -300px;
+        padding-bottom: 0px;
+       }
+        #sidebar-insert.active {
+          margin-left: 0;
+          padding-bottom: 190px;
+          min-width: 150px;
+        text-align: center;}
+         
+          #sidebar-insert .logo {
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto; }
+            .mb-5, .my-5 {
+              margin-bottom: 0rem !important;}
+              .p-4 {
+                padding: 0.0rem !important;
+            }
+            #sidebar-insert ul li.active > a {
+              background: transparent;
+              font-size: 12px;
+               }
+               #sidebar-insert ul li a {
+                 padding: 5px 0; 
+                display: block;
+                color: #e9ecef;
+                border-bottom: 1px solid white;
+                font-size: 12px
+         }
+        }
+      
+        #sidebar-insert-bottom {
+          /* transform: rotate(180deg); */
+          /* min-width: 510px; */
+          min-width: 350px;
+
+          /* padding-bottom: 500px; */
+          min-height: 80px;
+          max-height: 120px;
+          border-radius: 15px;
+          background: #E3DCDA;
+          color: #fff;
+          -webkit-transition: all 0.3s;
+          -o-transition: all 0.3s;
+          transition: all 0.3s; }
+          #sidebar-insert-bottom.active {
+            margin-left: -00px; }
+          #sidebar-insert-bottom .logo {
+            display: block;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto; }
+            #sidebar-insert-bottom .logo span {
+              display: block; }
+          #sidebar-insert-bottom ul.components {
+            padding: 0; }
+          #sidebar-insert-bottom ul li {
+              text-align: center;
+            font-size: 16px; }
+            #sidebar-insert-bottom ul li > ul {
+              margin-left: 10px; }
+              #sidebar-insert-bottom ul li > ul li {
+                font-size: 14px; }
+            #sidebar-insert-bottom ul li a {
+              padding: 10px 0;
+              display: block;
+              color: #e9ecef;
+        
+              border-bottom: 1px solid white }
+              #sidebar-insert-bottom ul li a:hover {
+                color: #e9ec00; }
+            #sidebar-insert-bottom ul li.active > a {
+              background: transparent;
+               }
+          @media (max-width: 500.98px) {
+            #sidebar-insert-bottom {
+              margin-left: -300px;
+              padding-bottom: 0px;
+             }
+              #sidebar-insert-bottom.active {
+                margin-left: 0;
+                padding-bottom: 190px;
+                min-width: 150px;
+              text-align: center;}
+               
+                #sidebar-insert-bottom .logo {
+                  display: block;
+                  width: 50px;
+                  height: 50px;
+                  margin: 0 auto; }
+                  .mb-5, .my-5 {
+                    margin-bottom: 0rem !important;}
+                    .p-4 {
+                      padding: 0.0rem !important;
+                  }
+                  #sidebar-insert-bottom ul li.active > a {
+                    background: transparent;
+                    font-size: 12px;
+                     }
+                     #sidebar-insert-bottom ul li a {
+                       padding: 5px 0; 
+                      display: block;
+                      color: #e9ecef;
+                      border-bottom: 1px solid white;
+                      font-size: 12px
+               }
+              }
+.paddingButton {
+  padding: 10px;
+}

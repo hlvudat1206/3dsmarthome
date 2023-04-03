@@ -1,0 +1,172 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .site-mobile-menu .site-navbar-target {
+    border-radius: 10px;
+  }
+  
+ 
+  
+  /* ======= Buttons ======== */
+  
+  /* Block */
+  
+  
+  .button-all {
+    width: 100%;
+    margin-top: -12px;
+    padding-bottom: 0px;
+  }
+  .div-button-padding {
+    margin-top: 6px;
+    margin-bottom: -4px;
+  }
+
+  .b-font {
+    font-size: 14px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+  
+  /* Modifier */
+  .btn--size-l {
+    padding: 16px 56px;
+  }
+  
+  .btn--size-s {
+    padding: 8px 32px;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
+  
+  
+  .btn--success {
+    background-color: #4ECB71;
+    width: 100%;
+  }
+  
+  .btn--warn {
+    background-color: #ffb702;
+  }
+  
+  .btn--danger {
+    background-color: #ff623d;
+  }
+  
+  .btn--disabled, .btn[disabled] {
+    opacity: 0.5 !important;
+    pointer-events: none;
+  }
+
+.imglogo {
+    padding-left: 23px;
+}
+
+.content-menu {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.themtinhnang {
+    margin-top: 7px;
+}
+
+.thietlap {
+    margin-top: 7px;
+}
+
+.other {
+    margin-top: 7px;
+}
+
+/*Menu vung tuong tac*/
+.anhien {
+    display: none;
+}
+
+.menu-box {
+  
+  height: 28px;
+    padding-top: 2px;
+    margin-top: 5px;
+     margin-bottom: 5px;
+}
+.menu-vungtuongtac {
+  background-color: rgb(255 255 255 / 32%);
+  margin-top: 8px;
+    border-radius: 50px;
+    
+    /* height: 232px;
+    width: 227px; */
+}
+.vungtuongtac {
+ border-radius: 50px;
+    font-size: 12px;
+    height: 23px;
+    text-align: center;
+    margin-bottom: 3px;
+}
+.text-vungtuongtac {
+  margin-top: -6px;
+}
+.select {
+  color: black;
+}
+.select-form {
+  border-radius: 20px;
+}
+#modanhsachdoituong {
+  border-radius: 20px;
+  height: 25px;
+  width: 196px;
+  border: hidden;
+}
+.ok {
+  border-radius: 23px;
+  height: 23px;
+  width: 63px;
+  background-color: #e9ecef;
+  border: hidden;
+}
+.upload {
+  border-radius: 20px;
+  height: 19px;
+  width: 55px;
+  background-color: #4ECB71;
+  border: hidden;
+}
+.cancel {
+  border-radius: 20px;
+    height: 24px;
+    width: 63px;
+    background-color: #e9ecef;
+    border: hidden;
+}
+
+.okcancel {
+  margin-bottom: 3px;
+    text-align: center;
+}
+.truoc
+{
+  overflow-y: scroll;
+  height: 100px;
+}
+
+
+
+
+/*Menu vung tinh nang*/
+
+
+/* CSS PHẦN BOX-------------------------------------------------------- */
+
+

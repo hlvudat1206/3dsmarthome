@@ -1,0 +1,98 @@
+.text-properties{
+    color:brown;
+    font-size: 12px;
+    font-style: inherit;
+    font-weight: bold;
+    /* visibility: hidden; */
+    margin-right: 800px;
+    margin-top: 10px;
+    min-width: 200px;
+    max-width: 300px;
+    /* padding-bottom: 500px; */
+    /* min-height: 180px; */
+    min-height: 80px;
+
+    max-height: 120px;
+}
+
+#sidebar-guide {
+    /* transform: rotate(180deg); */
+    margin-right: 750px;
+    min-width: 200px;
+    min-height: 80px;
+
+
+    max-width: 300px;
+
+    max-height: 120px;
+    border-radius: 15px;
+    background: #E3DCDA;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+    #sidebar-guide.active {
+      margin-left: -00px; }
+    #sidebar-guide .logo {
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto; }
+      #sidebar-guide .logo span {
+        display: block; }
+    #sidebar-guide ul.components {
+      padding: 0; }
+    #sidebar-guide ul li {
+        text-align: center;
+      font-size: 16px; }
+      #sidebar-guide ul li > ul {
+        margin-left: 10px; }
+        #sidebar-guide ul li > ul li {
+          font-size: 14px; }
+      #sidebar-guide ul li a {
+        padding: 10px 0;
+        display: block;
+        color: #e9ecef;
+  
+        border-bottom: 1px solid white }
+        #sidebar-guide ul li a:hover {
+          color: #e9ec00; }
+      #sidebar-guide ul li.active > a {
+        background: transparent;
+         }
+    @media (max-width: 500.98px) {
+      #sidebar-guide {
+        margin-left: -300px;
+        padding-bottom: 0px;
+       }
+        #sidebar-guide.active {
+          margin-left: 0;
+          padding-bottom: 190px;
+          min-width: 150px;
+        text-align: center;}
+         
+          #sidebar-guide .logo {
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto; }
+            .mb-5, .my-5 {
+              margin-bottom: 0rem !important;}
+              .p-4 {
+                padding: 0.0rem !important;
+            }
+            #sidebar-guide ul li.active > a {
+              background: transparent;
+              font-size: 12px;
+               }
+               #sidebar-guide ul li a {
+                 padding: 5px 0; 
+                display: block;
+                color: #e9ecef;
+                border-bottom: 1px solid white;
+                font-size: 12px
+         }
+        }
+.paddingButton {
+padding: 10px;
+}
