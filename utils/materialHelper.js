@@ -1,6 +1,7 @@
 let textureChoose
 let dataMesh = []
 let count = -1;
+import * as THREE from '../build/three.module.js';
 
 export const setMaterial = (parent, material, activeOption) => {
   parent.traverse((o) => {
