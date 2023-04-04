@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>StarGlobal 3D</title>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	<meta property="og:type" content="website"> <!-- type of site -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/content.css">
+	<link rel="stylesheet" href="css/infoTab.css">
+	<link rel="stylesheet" href="css/insert.css">
+	<link rel="stylesheet" href="css/minimap.css">
+	<link rel="stylesheet" href="css/minimapview.css">
+	<link rel="stylesheet" href="css/shownormaltext.css">
+
+
+
+	<!-- <link rel="stylesheet" href="https://starglobal3d.vn/sanpham/managements/admin/users/css/bootstrap.min.css"> -->
+
+
+	<!-- <link rel="stylesheet" href="css/rightmenu.css"> -->
+
+   
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com"> 
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="css/rightmenu.css">
+</head>
+	
+	<body>
+		<!--<script src='https://sanpham.starglobal3d.com/demo/showroom/build/three.js'></script>-->
+		<!-- <script src='https://starglobal3d.vn/sanpham/smart-home-3d/hoasen-home/build/three.js'></script> -->
+		<script src="js/ImageData-polyfill.js"></script>
+		<script src="js/canvas.toBlob-polyfill.js"></script>
+		<script src="js/CubemapToEquirectangular.js"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
+		<!-- <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    >
+	</script> -->
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script> -->
+	<script src="js/jquery.validate.min.js"></script>	
+	
+	
+
+	<div style="z-index: 999999; position: fixed; height: 20px; bottom: 120px" >
+		<!-- "W" translate | "E" rotate | "R" scale | "+/-" adjust size<br />
+		"X" toggle X | "Y" toggle Y | "Z" toggle Z<br />
+		"Esc" reset current transform<br />
+		"V" random zoom -->
+		<!-- <nav id="sidebar-guide" >
+			<div class = "text-properties">
+				"W" translate | "E" rotate | "R" scale | "+/-" adjust size<br />
+				"X" toggle X | "Y" toggle Y | "Z" toggle Z<br />
+				"Esc" reset current transform<br />
+				"V" random zoom
+			</div>
+			
+		
+		</nav> -->
+		
+		<div id="shortcut-guide" class = "text-properties" >
+		
+			
+		</div>
+	
+	
+	</div>
+		
+		
+		
+		<div id ="update-menu" class="context-menu2">
+			<iframe name="dummyframe" id="dummyframe" style = "display:none;"> </iframe>
+			<form  target="dummyframe" id = "update-info-material" action="./backend/updateform.php" method="post">
+				<!-- <input type="text" id="fname" name="fname"><br><br>
+				<input type="text" id="lname" name="lname" disabled><br><br> -->
+				<!-- <input type="submit" value="Submit"> -->
+				<div  class="row-properties ">
+					<div  class="column-tieu-de left-tieu-de" >
+					  <p >Thông tin vật dụng</p>
+					</div>
+					<div  class="column-tieu-de right-tieu-de">
+					  <!-- <label id = "ten-san-pham"></label> -->
+					  <button type="button" class="btn btn-danger btn-sm" data-target="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="close-form">x</button>
+	
+	
+					</div>
+				  </div>
+				<div  class="row-properties ">
+				<div  class="column left" >
+				  <label >Tên sản phẩm</label>
+				</div>
+				<div  class="column right">
+				  <!-- <label id = "ten-san-pham"></label> -->
+				  <input class = "change-text-input" size = "10" id = "ten-san-pham" type="text" id="lname" name="tensanpham" disabled><br><br>
+
+
+				</div>
+			  </div>
+			  <div class="row-properties">
+				<div class="column left" >
+				  <label >Thương hiệu</label>
+				</div>
+				<div class="column right">
+				  <!-- <label id = "thuong-hieu"></label> -->
+				  <input size = "10" class = "change-text-input"id = "thuong-hieu" type="text" id="lname" name="thuonghieu" disabled ><br><br>
+
+				</div>
+				</div>
+				<div class="row-properties">
+					<div class="column left" >
+					  <label >Chức năng</label>
+					</div>
+					<div class="column right">
+					  <!-- <label id = "chuc-nang"></label> -->
+					  <input size = "10"  class = "change-text-input" id = "chuc-nang" type="text" id="lname" name="chucnang" disabled ><br><br>
+
+					</div>
+					</div>
+					<div class="row-properties">
+						<div class="column left" >
+						  <label >Mô tả chi tiết</label>
+						</div>
+						<div class="column right">
+						  <!-- <label id = "mo-ta-chi-tiet"></label> -->
+						  <input size = "10"  class = "change-text-input" id = "mo-ta-chi-tiet" type="text" id="lname" name="motachitiet" disabled ><br><br>
+						</div>
+						</div>
+						<div class="row-properties">
+							<div class="column left" >
+							  <label >Giá</label>
+							</div>
+							<div class="column right">
+							  <!-- <label id = "gia-san-pham"></label> -->
+							  <input size = "10"  class = "change-text-input" id = "gia-san-pham" type="text" id="lname" name="gia" disabled = "true" ><br><br>
+
+							</div>
+							</div>
+							<div class="row-properties">
+								<div class="column left" >
+								  <label ></label>
+								</div>
+								<div class="column right-Button-submit">
+								  <div>
+								  <button type="button" class="btn btn-warning" data-target="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="edit-form"><i class='bx bxs-edit-alt'></i></button>
+								  <!-- <button type="button" value="Submit" class="btn btn-warning" data-target="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="submit-form">Submit</button> -->
+								  <button type="submit" class="btn btn-primary" id="btnUpdateSubmit" name="update-thong-so" ><i class='bx bx-check'></i></button>
+									
+								</div>
+								</div>
+								</div>
+			  </div>
+			</form>
+			
+		</div>
+		
+		<div >
+			<ul class="context-menu">
+				<li id="insert" class="test"><a href="#"><i class='bx bx-copy'></i> Insert</a>
+					
+				</li>
+				<li id="edit"><a href="#"><i class='bx bx-cut'></i> Edit <i class='bx bx-chevron-right arrow' ></i></a>
+		
+					<ul class="context-menu dropdown-menu">
+						<li id="rotation"><a href="#"><i class='bx bx-rotate-right'></i> Rotation</a></li>
+						<li id="scale"><a href="#"><i class='bx bxs-right-top-arrow-circle'></i> Scale</a></li>
+						
+						<li class="divider"></li>
+						
+					</ul>
+				</li>
+				<li id="delete"><a href="#"><i class='bx bxs-folder-minus'></i> Delete</a></li>
+				<li id="move"> <a href="#"><i class='bx bx-move'></i> Move</a></li>
+				<li id="properties"> <a href="#"><i class='bx bxs-info-circle'></i> Properties</a></li>
+
+				<!-- <li >
+					<a href="#">
+						<i class='bx bx-share-alt'></i> Share <i class='bx bx-chevron-right arrow' ></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#"><i class='bx bxl-facebook'></i> Facebook</a></li>
+						<li><a href="#"><i class='bx bxl-instagram'></i> Instagram</a></li>
+						<li><a href="#"><i class='bx bxl-whatsapp'></i> WhatsApp</a></li>
+						<li><a href="#"><i class='bx bxl-twitter'></i> Twitter</a></li>
+						<li class="divider"></li>
+						
+					</ul>
+				</li> -->
+				
+			</ul>
+		
+	</div>
+	
+	<!-- <div>
+	<ul class="context-menu2">
+		<li><a href="#"><i class='bx bx-copy'></i> Copy</a></li>
+		<li><a href="#"><i class='bx bx-cut'></i> Cut</a></li>
+		<li><a href="#"><i class='bx bx-paste'></i> Paste</a></li>
+		
+		<li><a href="#"><i class='bx bx-transfer-alt'></i> Translate</a></li>
+		<li class="divider"></li>
+		<li><a href="#"><i class='bx bx-refresh'></i> Reload</a></li>
+		<li><a href="#"><i class='bx bx-log-out-circle'></i> Quit</a></li>
+	</ul>
+	</div> -->
+		<!-- <div id="context-menu">
+			<div class ="item" id="create">
+				<li>
+				<i class ='bx bx-add-to-queue'></i> Create Object
+				<ul class="dropdown-menu">
+					<li><i class ='bx bx-add-to-queue'></i> A</li>
+					<li><i class ='bx bx-add-to-queue'></i>B </li>
+					<li><i class ='bx bx-add-to-queue'></i> C</li>
+					<li><i class ='bx bx-add-to-queue'></i>D </li>
+					<li><i class ='bx bx-add-to-queue'></i> E</li>
+
+				</ul>
+			</li>
+			</div>
+			<div class ="item" id="remove">
+				<i class = "fa fa-cut" ></i> Remove Object
+			</div>
+			<div class ="item" id="edit">
+				<i class = "fa fa-edit" ></i> Edit
+			</div>
+
+		</div> -->
+		
+		 	<!-- <div style="z-index: 999999; position: absolute;height:100%;" >
+				<nav id="sidebar_insert">
+					<div class="p-4 pt-5">
+						<ul class="list-unstyled components mb-5">
+				<li >
+				<button type="button" class="btn btn-warning" data-target="#image_object" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="imageobjectClick">Insert</button>
+
+					<ul class="collapse list-unstyled22" id="image_object"><br>
+
+						<div id="vatlieu_image_object">
+							<div type="image" id="js-tray-slide-image-object" class="imagebox"></div>
+
+							</div>
+						</ul>	  
+					</li>
+				</ul>
+				</div>
+			</nav>
+			</div>	 -->
+	<!-- <div class="button-insert"> -->
+		<!-- <div style="z-index: 999999; position: fixed; height: 30px; top: 10px" >
+			<nav id="sidebar-insert" >
+
+			</nav>
+		</div> -->
+
+		<div style="z-index: 999999; position: fixed; height: 10px; top: 10px" >
+			
+			<nav id="sidebar-insert" >
+				
+				<div class="p-4-special pt-8">
+			  		
+
+						<ul class="list-unstyled components mb-5">
+
+							  <li class="active" >
+								<button type="button" class="btn btn-warning" data-target="#image_object" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="imageobjectClick"><i class='bx bxs-folder-plus'></i></button>
+								<button type="button" class="btn btn-warning" data-target="#hidden-sidebar" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="fourbuttonClick"><i class='bx bx-menu'></i></button>
+
+								<!-- <button type="button" class="btn btn-warning" data-target="#image_object" aria-expanded="false" class="dropdown-toggle" id="imageobjectClick"><i class='bx bxs-folder-plus'></i></button>
+
+								<button type="button" class="btn btn-warning" data-target="#image_object_noClick" aria-expanded="false" class="dropdown-toggle" style ="border-top: 10px;"id="centerButton"><i class='bx bx-cross'></i></button> -->
+								<!-- <button type="button" class="btn btn-warning" data-target="#image_object2" aria-expanded="false" class="dropdown-toggle" id="centerButton"><i class='bx bxs-folder-plus'></i></button> -->
+
+									<ul class="collapse list-unstyled" id="image_object"><br>
+					
+										<div id="vatlieu_image_object">
+											<div type="image" id="js-tray-slide-image-object" class="imagebox"></div>
+					
+										  </div>
+									  </ul>	  
+								  </li>
+
+						</ul>
+						
+				
+				</div>
+			
+			</nav>
+		</div>
+		<div id="info">
+			<a href="https://threejs.org" target="_blank" rel="noopener"></a> <br/>
+			 <a href="https://mirada.com/" target="_blank" rel="noopener"></a>  <a href="http://www.ro.me" target="_blank" rel="noopener"></a><br/><br/>
+
+			<!-- <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - webgl hemisphere light example<br/>
+			flamingo by <a href="https://mirada.com/" target="_blank" rel="noopener">mirada</a> from <a href="http://www.ro.me" target="_blank" rel="noopener">ro.me</a><br/><br/> -->
+			<button id="hemisphereButton">Bật/ tắt ánh sáng mặt trời </button>
+			<button id="directionalButton">Bật/ tắt đèn ngoài sân </button>
+		</div>
+		
+		
+		<!-- <div style="z-index: 999999; position: fixed; bottom: 10px; right: 10px" >
+			<ul ><br>
+			<nav id="sidebar-minimap" >
+				
+
+				
+				<div class="p-4 pt-8">
+					
+					<div class = "paddingButton">
+						
+						<ul class="list-unstyled components mb-5">
+
+							  <li class="active" >
+								<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style ="border-top: 10px;"id="homeButton"><i class='bx bxs-home'></i></button>
+								<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="upButton"><i class='bx bxs-chevron-up'></i></button>
+								<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style ="border-top: 10px;"id="centerButton"><i class='bx bx-cross'></i></button>
+
+
+									
+								</li>
+								 
+								  <li class="active" >
+									<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="leftButton"><i class='bx bxs-chevron-left'></i></button>
+									<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style ="border-top: 10px;"id="downButton"><i class='bx bxs-chevron-down'></i></button>
+
+									<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="rightButton"><i class='bx bxs-chevron-right'></i></button>
+										
+								</li>
+
+						</ul>
+						
+					</div>
+				
+				</div>
+			
+			</nav>
+		</ul>
+		</div> -->
+		<div style="z-index: 999999; position: fixed; height: 20px; bottom: 140px" >
+			<ul class="collapse list-unstyled" id="hidden-sidebar" ><br>
+			<nav id="sidebar-insert-bottom" >
+				
+
+				
+				<div class="p-4 pt-8">
+					
+					<div class = "paddingButton">
+						<ul class="list-unstyled components mb-5">
+
+							  <li class="active" >
+								<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style ="border-top: 10px;"id="homeButton"><i class='bx bxs-home'></i></button>
+								<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="upButton"><i class='bx bxs-chevron-up'></i></button>
+								<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style ="border-top: 10px;"id="centerButton"><i class='bx bx-cross'></i></button>
+
+
+									
+								</li>
+								 
+								  <li class="active" >
+									<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="leftButton"><i class='bx bxs-chevron-left'></i></button>
+									<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style ="border-top: 10px;"id="downButton"><i class='bx bxs-chevron-down'></i></button>
+
+									<button type="button" class="btn btn-warning" data-target="#image_object_noClick" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="rightButton"><i class='bx bxs-chevron-right'></i></button>
+										
+								</li>
+
+						</ul>
+						
+					</div>
+				
+				</div>
+			
+			</nav>
+		</ul>
+		</div>
+	
+		
+	
+
+	<!-- </div> -->
+		<div style="z-index: 999999; position: absolute;left:-10px;height:100%;"  class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+			  		<!--<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/logo.png);"></a>-->
+			  		<a href="#" class="img logo mb-5" style="background-image: url(images/marker.png);"></a>
+						<ul class="list-unstyled components mb-5">
+		
+		 			 	<li class="active">
+							<a href="#mai_nha" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mái nhà</a>
+			
+							<ul class="collapse list-unstyled" id="mai_nha"><br>
+			
+								<div id="vatlieu1">
+			  						<div type="image" id="js-tray-slide-tran" class="imagebox"></div>
+
+		  						</div>
+			
+		  					</ul>
+		  
+		  				</li>
+		  				
+		  <li>
+			
+
+		  <a href="#mau_tuong" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Màu tường</a>
+			<ul class="collapse list-unstyled" id="mau_tuong"><br>
+				
+				<div id="vatlieu1">
+					<div type="image" id="js-tray-slide" class="imagebox">
+					
+				</div>
+				
+			</ul>
+		  </li>
+
+		  <!-- <li >
+			<a href="#image_Object" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">image_Object</a>
+
+				<ul class="collapse list-unstyled22" id="image_Object"><br>
+
+					<div id="vatlieu_image_object">
+						<div type="image" id="js-tray-slide-image-object" class="imagebox"></div>
+
+					  </div>
+				  </ul>	  
+			  </li> -->
+		<li>
+		  <a href="#vatdung" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Sàn nhà</a>
+		  <ul class="collapse list-unstyled" id="vatdung"><br>
+			<li>
+			  <div id="vatdung">
+			  	<div type="image" id="js-tray-slide-san" class="imagebox"></div>
+
+		  		</div>
+
+			</li>
+			
+		  </ul>
+		  </li>
+
+
+		  <li>
+			<a href="#mau_cua_so" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Màu cửa sổ</a>
+			  <ul class="collapse list-unstyled" id="mau_cua_so"><br>
+				  
+				  <div id="vatlieu3">
+					  <div type="image" id="js-tray-slide-cua" class="imagebox">
+					  
+				  </div>
+				  
+			  </ul>
+			</li>
+		  
+		  
+		  <li>
+			<a onclick="window.open('./chi-phi');" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tính toán chi phí</a>
+			<ul class="collapse list-unstyled" id="vatdung"><br>
+				
+			</ul>
+		  </li>
+		  
+		  <li>
+			<a onclick="window.open('./view-360');" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Xem phối cảnh 360</a>
+			<ul class="collapse list-unstyled" id="vatdung"><br>
+				
+			</ul>
+		  </li>
+		  
+		  <li>
+			<a onclick="window.open('https://sanpham.starglobal3d.com/smart-showroom-3d/dong-tam/');" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Trải nghiệm Showroom 3D</a>
+			<ul class="collapse list-unstyled" id="vatdung"><br>
+				
+			</ul>
+		  </li>
+
+		
+
+		<li>
+			<a href="#maunha" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Thay đổi mẫu nhà</a>
+			<ul class="collapse list-unstyled" id="maunha"><br>
+			  <li>
+				<div type="image" class="image_box">
+					<div type="image" id="nhamau1" class="tray__swatch_Tran" style="background-image: url(img/mau1.jpg);width: 50px;"></div>
+					<div type="image" id="nhamau2" class="tray__swatch_Tran" style="background-image: url(img/mau2.jpg);width: 50px;"></div>
+				</div>
+			  </li>
+			  
+			</ul>
+		</li>
+
+		
+
+
+		  
+		</ul>
+
+  
+		  <li>
+		<lable >Công cụ</lable>
+			<div style="position: absolute; padding: 10px; ">
+				<div style="display: -webkit-inline-box;">
+					<div id="openmeasure">
+						<img src="img/measurement.svg" width="30px"></img>
+					</div>
+			
+					<div id="closemeasure">
+						<img src="img/measurement_x.png" width="30px"></img>
+					</div>
+
+					<div>
+						<img id="saveLink" src="img/capture.png" width="30px"></img>
+					</div>
+				</div>
+				
+
+			</div>
+	  </div>
+	</nav>
+
+	<!-- Page Content  -->
+  <div id="content">
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <div class="container-fluid">
+
+		<button type="button" id="sidebarCollapse" class="btn btn-primary">
+		  <i class="fa fa-bars"></i>
+		  <span class="sr-only">Toggle Menu</span>
+		</button>
+
+
+		<!--<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<i class="fa fa-bars"></i>
+		</button>-->
+
+
+	  </div>
+	</nav>
+	</div>
+
+
+
+</div>
+		<div id="container"></div>
+
+    
+     	<div class="loading" id="js-loader">
+        	<div class="loader"></div>
+
+			<input type="text" style="z-index: 1000000000000;" id="progress" value="">
+
+    	</div>
+    	
+
+		
+    
+		<script type="module" src="app.js"></script>
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
+
+		
+	</body>
+</html>
