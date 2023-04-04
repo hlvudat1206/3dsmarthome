@@ -467,8 +467,8 @@ import { texturesTuongAndColors, texturesTranAndColors, texturesSanAndColors, te
 
 			let onProgress = function ( xhr ) {
 				if ( xhr.lengthComputable ) {
-					let percentComplete = xhr.loaded / xhr.total * 100;
-					document.getElementById("progress").value =  Math.round( percentComplete, 2 ) + '% Đang tải chờ chút nhé.';
+// 					let percentComplete = xhr.loaded / xhr.total * 100;
+// 					document.getElementById("progress").value =  Math.round( percentComplete, 2 ) + '% Đang tải chờ chút nhé.';
 				}
 			};
 
