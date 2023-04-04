@@ -8,7 +8,7 @@ import { getTextureMaterial, selectSwatch } from "./utils/materialHelper.js";
 import { DragControls } from "./js/DragControls.js";
 import {MouseMeshInteraction} from "./js/mousemes_interact.js";
 // import {texturesImageObject}  from "./constants/imageObject.js";
-import {FirstPersonControls} from "./js/FirstPersonControls.js";
+
 import { TWEEN } from './js/tween.module.min.js';
 import {Autotour,VivianiCurve} from './js/CurveExtras.js';
 import {texturesImageObject} from "./constants/imageObject.js";
