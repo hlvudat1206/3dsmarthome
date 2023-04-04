@@ -213,8 +213,8 @@ import { texturesTuongAndColors, texturesTranAndColors, texturesSanAndColors, te
 		const radius = 100;
 		let lights = [];
 
-		getDataObject.open("GET", "https://starglobal3d.vn/sanpham/smart-home-3d/hoasen-home/backend/savedata.php", true);
-		getDataObject.send();
+		//getDataObject.open("GET", "https://starglobal3d.vn/sanpham/smart-home-3d/hoasen-home/backend/savedata.php", true);
+		//getDataObject.send();
 
 		init();
 
@@ -225,16 +225,16 @@ import { texturesTuongAndColors, texturesTranAndColors, texturesSanAndColors, te
 			
 			//Get Data from server
 
-		getDataObject.onreadystatechange = function() {
+// 		getDataObject.onreadystatechange = function() {
 			
-			if (this.readyState == 4 && this.status == 200) {
-				data_Object = this.responseText;
-				console.log('in ra text: ',data_Object)
-				data_object_array = data_Object.split("-")
-				console.log('in data_object_array: ',data_object_array)
-				dataObjectoHTML()
-			}
-		};
+// 			if (this.readyState == 4 && this.status == 200) {
+// 				data_Object = this.responseText;
+// 				console.log('in ra text: ',data_Object)
+// 				data_object_array = data_Object.split("-")
+// 				console.log('in data_object_array: ',data_object_array)
+// 				dataObjectoHTML()
+// 			}
+// 		};
 		
 			//KT trinh duyet
 			console.log('He dieu hanh dang su dung: ',navigator.platform)
