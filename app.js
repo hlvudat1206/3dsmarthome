@@ -511,18 +511,14 @@ import { texturesTuongAndColors, texturesTranAndColors, texturesSanAndColors, te
 					
 					pickableObjects.push(child);
 					}
-					document.getElementById("js-loader").style.display =  'none';
-				  	document.getElementById("progress").style.display =  'none';
+// 					document.getElementById("js-loader").style.display =  'none';
+// 				  	document.getElementById("progress").style.display =  'none';
 				  });
 				  console.log(' in objectchoose',objectchoose )
 				
 				  scene.add(ngoinha);
 				  
 
-			}, onProgress, function ( e ) {
-				console.error( e );
-			
-			
 			});
 			// GROUND
 			loader.load( folder + 'street.gltf', function ( gltf ) {
