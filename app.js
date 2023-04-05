@@ -466,10 +466,10 @@ import { texturesTuongAndColors, texturesTranAndColors, texturesSanAndColors, te
 			reflectionCube = new THREE.CubeTextureLoader().load( urls );
 
 			let onProgress = function ( xhr ) {
-// 				if ( xhr.lengthComputable ) {
-//  					let percentComplete = xhr.loaded / xhr.total * 100;
-//  					document.getElementById("progress").value =  Math.round( percentComplete, 2 ) + '% Đang tải chờ chút nhé.';
-// 				}
+				if ( xhr.lengthComputable ) {
+ 					let percentComplete = xhr.loaded / xhr.total * 100;
+ 					document.getElementById("progress").value =  Math.round( percentComplete, 2 ) + '% Đang tải chờ chút nhé.';
+				}
 			};
 
 			
@@ -511,14 +511,18 @@ import { texturesTuongAndColors, texturesTranAndColors, texturesSanAndColors, te
 					
 					pickableObjects.push(child);
 					}
-// 					document.getElementById("js-loader").style.display =  'none';
-// 				  	document.getElementById("progress").style.display =  'none';
+					document.getElementById("js-loader").style.display =  'none';
+				  	document.getElementById("progress").style.display =  'none';
 				  });
 				  console.log(' in objectchoose',objectchoose )
 				
 				  scene.add(ngoinha);
 				  
 
+			}, onProgress, function ( e ) {
+				console.error( e );
+			
+			
 			});
 			// GROUND
 			loader.load( folder + 'street.gltf', function ( gltf ) {
