@@ -60,7 +60,7 @@ width: auto;
          }
     @media (max-width: 500.98px) {
       #sidebar-insert {
-        margin-left: -300px;
+       // margin-left: -300px;
         padding-bottom: 0px;
        }
         #sidebar-insert.active {
